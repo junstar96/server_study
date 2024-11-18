@@ -1,5 +1,11 @@
-const hello = ()=>{console.log("hello world")};
+import express from 'express';
 
+export const router_app = express.Router();
 
+router_app.get('/app', (req,res) => {
+    res.json('default url for goods.js GET Method');
+});
 
-export default hello;
+router_app.get('/app/about', (req,res) => {
+    res.json('default url for goods.js GET Method');
+});
