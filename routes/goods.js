@@ -1,48 +1,28 @@
 // Express.js의 라우터를 생성합니다.
 import express from 'express' 
-export const router = express.Router();
+import Goods from '../schemas/goods.js'
 
-const goods = [
-  {
-    goodsId: 1,
-    name: '상품 1',
-    thumbnailUrl:
-      'https://cdn.pixabay.com/photo/2016/09/07/19/54/wines-1652455_1280.jpg',
-    category: 'drink',
-    price: 6.2,
-  },
-  {
-    goodsId: 2,
-    name: '상품 2',
-    thumbnailUrl:
-      'https://cdn.pixabay.com/photo/2014/08/26/19/19/wine-428316_1280.jpg',
-    category: 'drink',
-    price: 0.11,
-  },
-  {
-    goodsId: 3,
-    name: '상품 3',
-    thumbnailUrl:
-      'https://cdn.pixabay.com/photo/2016/09/07/02/12/frogs-1650658_1280.jpg',
-    category: 'drink',
-    price: 2.2,
-  },
-  {
-    goodsId: 4,
-    name: '상품 4',
-    thumbnailUrl:
-      'https://cdn.pixabay.com/photo/2016/09/07/02/11/frogs-1650657_1280.jpg',
-    category: 'drink',
-    price: 0.1,
-  },
-  
-];
+const router = express.Router();
 
 
 /** 상품 목록 조회 **/
 // localhost:3000/api/goods GET
-router.get('/goods', (req, res) => {
-  return res.json({ goods: goods });
+router.post('/goods', async (req, res) => {
+  const {goodsId, name, thumbnailUrl, category, price} = req.body;
+
+  //.exec는 동기를 비동기로 바꾸는 걸로 이해하자. promise를 반환한다.
+  const goods_list = await Goods.find({goodsId}).exec();
+  if(goods_list.length)
+  {
+    return res.status(400).json({success : false, errorMassage : "이미 존재하는 데이터입니다."})
+
+  }
+
+  const createdGoods = await Goods.create({
+    goodsId, name, thumbnailUrl, category, price
+  })
+
+  return res.status(201).json({ goods: createdGoods });
 });
 
 
@@ -83,7 +63,7 @@ router.post('/goods', (req,res)=>{
 })
 
 
-
+export default router;
 
 
 

@@ -3,13 +3,7 @@
 import mongoose from 'mongoose';
 import express from 'express';
 
-const router = express.Router();
 
-router.post('/', (req, res)=>{
-    const {goodsId, name, thumbnailUrl, category, price} = req.body;
-    const goods_exist = await 
-}
-)
 
 // 상품(goods)에 대한 정보를 나타내는 스키마를 정의합니다.
 const goodsSchema = new mongoose.Schema({

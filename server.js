@@ -1,12 +1,15 @@
 import express from 'express';
 import {router_app} from './routes/endpoint.js';
-import { router } from './routes/goods.js';
-//import {connect} from "./schemas/index.js"
+import router from './routes/goods.js';
+import connect  from "./schemas/index.js";
+
+
+
 
 const app = express();
 const PORT = 3000;
 
-//connect();
+connect();
 
 //mongodb+srv://<db_username>:<db_password>@server-item-test.stkak.mongodb.net/?retryWrites=true&w=majority&appName=server-item-test
 //mongodb+srv://jemuras1010:gowjfhdnjf12!@closter0.ofp3n.mongodb.net/?retryWrites=true&w=majority&appName=closter0

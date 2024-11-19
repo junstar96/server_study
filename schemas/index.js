@@ -1,32 +1,21 @@
 // /schemas/index.js
-import express from 'express'
+
 import mongoose from 'mongoose';
-import Goods from './goods.js'
 
-const router = express.Router();
-
-router.post('/goods', async (req,res)=>{
-    const {goodsId, name, thumbnailUrl,category,price} = req.body;
-
-    //배열의 형태로 반환된다.
-    const goods = await Goods.find({goodsId : goodsId}).exec();
-
-    if(goods.length)
-    {
-        return res.status(400).json({errormassage : "이미 존재함"})
-    }
-
-    const createdGoods = await Goods.create(
-        {
-            goodsId : goodsId,
-            name : name,
-            thumbnailUrl : thumbnailUrl,
-            category : category,
-            price : price
-        }
+const connect = () => {
+  mongoose
+    .connect(
+      'mongodb+srv://jemuras1010:gowjfhdnjf12!@closter0.ofp3n.mongodb.net/?retryWrites=true&w=majority&appName=closter0',
+      {
+        dbName: 'spa_mall', // spa_mall 데이터베이스명을 사용합니다.
+      },
     )
+    .catch((err) => console.log(err))
+    .then(() => console.log('몽고디비 연결 성공'));
+};
 
-    return res.status(201).json({goods : createdGoods});
-})
+mongoose.connection.on('error', (err) => {
+  console.error('몽고디비 연결 에러', err);
+});
 
-export default router;
+export default connect;
