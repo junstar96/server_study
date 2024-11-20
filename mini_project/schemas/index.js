@@ -9,8 +9,9 @@ const coonect = () => {
         dbName: "todo_memo",
       },
     )
-    .catch((err) => console.log("연결에 실패했습니다.", err))
-    .then(() => console.log("몽고디비 연결 성공"));
+    .then(() => console.log("몽고디비 연결 성공"))
+    .catch((err) => console.log("연결에 실패했습니다.", err));
+    
 };
 
 mongoose.connection.on("error", () => {

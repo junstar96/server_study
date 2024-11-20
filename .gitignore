@@ -134,3 +134,5 @@ dist
 # folder_name/ : 폴더 내의 모든 파일을 무시한다. 
 
 *.pem
+
+settings/
