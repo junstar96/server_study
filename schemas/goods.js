@@ -1,9 +1,7 @@
 // /schemas/goods.js
 
-import mongoose from 'mongoose';
-import express from 'express';
-
-
+import mongoose from "mongoose";
+import express from "express";
 
 // 상품(goods)에 대한 정보를 나타내는 스키마를 정의합니다.
 const goodsSchema = new mongoose.Schema({
@@ -29,4 +27,4 @@ const goodsSchema = new mongoose.Schema({
 });
 
 // 위에서 정의한 스키마를 이용하여 'Goods'라는 이름의 모델을 생성합니다.
-export default mongoose.model('Goods', goodsSchema);
+export default mongoose.model("Goods", goodsSchema);

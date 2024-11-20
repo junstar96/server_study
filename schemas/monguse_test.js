@@ -3,7 +3,7 @@
 //null : 존재하지 않는 필드
 //sting : 문자열 ex : "mongodb"
 //date : 날짜 ex : new Date()
-//Buffet : 파일을 담을 수 있는 버퍼, UTF-8이 아닌 문자열 저장 
+//Buffet : 파일을 담을 수 있는 버퍼, UTF-8이 아닌 문자열 저장
 //ex : 0x65
 //Boolean
 //ObjectId : 객체 ID, 주로 다른 객체들 참조할 때 넣음

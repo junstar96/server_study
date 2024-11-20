@@ -1,10 +1,16 @@
 {
   "type": "module",
+  "scripts": {
+    "format": "prettier --write *.js **/*.js"
+  },
   "dependencies": {
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
     "joi": "^17.13.3",
     "mongodb": "^6.10.0",
     "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
   }
 }

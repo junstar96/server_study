@@ -1,7 +1,5 @@
-try{
-    console.log(name);
+if (undefined) {
+  console.log("check");
+} else {
+  console.log("uncheck");
 }
-catch(err){
-    console.log("뭔가 오류");
-}
-
