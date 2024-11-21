@@ -136,3 +136,4 @@ dist
 *.pem
 
 settings/
+database_connect/

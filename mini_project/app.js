@@ -8,6 +8,7 @@ const PORT = 3000;
 
 connect();
 
+//미들웨어를 선언하는 저 부분이 API
 // Express에서 req.body에 접근하여 body 데이터를 사용할 수 있도록 설정합니다.
 app.use(express.json()); //미들웨어 1
 app.use(express.urlencoded({ extended: true })); //미들웨어 2
